@@ -5,13 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApixuService {
-  public apiKey = 'AIzaSyCPlqXnJXiR7O2_uQv9dmUAUDyMjZ8-jcE';
+  public apiKey = 'use_your_own_key';
+  public apiXuKey = 'use_own_key';
 
   constructor(private http:HttpClient) { }
 
   getWeather(location) {
     return this.http.get(
-      'https://api.apixu.com/v1/current.json?key=b4b63b9ccc4340c091d225929191607&q='+location
+      'https://api.apixu.com/v1/current.json?key='+this.apiXuKey+'&q='+location
     );
   }
 
