@@ -1,0 +1,33 @@
+<div class='main-container' [ngClass]="{'row-container-dark':darkModeActive}">
+  <div class='row-container'>
+    <header [ngClass]="{'main-header-dark':darkModeActive}" class='main-header'>
+      <form [formGroup]='weatherSearchForm' (ngSubmit) = 'sendToAPIXU(weatherSearchForm.value)'>
+          <input 
+                class='form-control' 
+                type='text'
+                id='weatherLocation'
+                aria-describedby="weatherLocation"
+                placeholder="Please enter a location" 
+                formControlName = 'location'
+            />
+          <button type='submit' class='btn btn-success btn-md text-center' [ngClass]="{'submit-btn-dark':darkModeActive}">
+              Search for weather details
+          </button>
+      </form>
+        <div></div>
+        <!-- Toggle button -->
+        <div class='mode-toggle-container'>
+          <span class='mode-toggle-text'>Light</span>
+
+          <label class='toggle-button-container'>
+            <input (click)='modeToggleSwitch()' type='checkbox' class='mode-toggle-input'/>
+            <span [ngClass]="{'mode-toggle-bg-checked':darkModeActive}" class='mode-toggle-bg'></span>
+            <span [ngClass]="{'mode-toggle-circle-checked': darkModeActive}" class='mode-toggle-circle'></span>
+          </label>
+
+          <span class='mode-toggle-text'>Dark</span>
+        </div>
+    </header>
+  </div>
+  <app-weather-card [weatherDetails]='weatherData'></app-weather-card>
+</div>
